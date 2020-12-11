@@ -31,8 +31,8 @@
             <div class="navbar-end">
             <div class="navbar-item">
               <div class="buttons">
-                <%= link "Log in", to: Routes.user_registration_path(@conn, :new), class: "button is-link is-outlined mr-5" %>
-                <%= link "Sign in", to: Routes.user_session_path(@conn, :new), class: "button is-link is-light" %>
+                <%= link "Log in", to: Routes.user_session_path(@conn, :new), class: "button is-link is-outlined mr-5" %>
+                <%= link "Sign in", to: Routes.user_registration_path(@conn, :new), class: "button is-link is-light" %>
               </div>
             </div>
             </div>
