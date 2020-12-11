@@ -1,0 +1,10 @@
+/* This file is for your main landing css. */
+/* using bulma only for landing without npm */
+
+/* attribution logo Penguin by Delwar Hossain from the Noun Project */
+
+@import "./bulma.min.css";
+.navbar.has-shadow {
+    -webkit-box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.70);
+    box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.70);
+}
