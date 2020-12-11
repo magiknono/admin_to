@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="has-navbar-fixed-top">
   <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -9,18 +9,34 @@
     <link phx-track-static rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/landing.css") %>"/>
   </head>
   <body>
+
     <header>
-      <section class="container">
-        <nav role="navigation">
-          <ul>
-            <li>landing</a></li>
-          </ul>
-        </nav>
-        <a href="https://phoenixframework.org/" class="phx-logo">
-          <img src="<%= Routes.static_path(@conn, "/images/phoenix.png") %>" alt="Phoenix Framework Logo"/>
-        </a>
-      </section>
+      <nav class="navbar is-fixed-top is-transparent" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="#">
+            <img src="<%= Routes.static_path(@conn, "/images/logo_blue.png") %>" alt="#"/>
+          </a>
+
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+
+        <div class="navbar-menu">
+            <div class="navbar-start">
+              <a class="navbar-item is-size-4 is-uppercase has-text-weight-medium" href="#">sitename</a>
+            </div>
+            <div class="navbar-end">
+              <div class="navbar-item">
+                 <%= link "Log in", to: Routes.user_session_path(@conn, :new), class: "button is-link is-outlined" %>
+              </div>
+            </div>
+        </div>
+      </nav>
     </header>
+
     <%= @inner_content %>
   </body>
 </html>
