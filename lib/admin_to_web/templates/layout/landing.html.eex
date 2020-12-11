@@ -31,8 +31,12 @@
             <div class="navbar-end">
             <div class="navbar-item">
               <div class="buttons">
+                <%= if @current_user do %>
+                  <%= link "Back to app", to: Routes.page_path(@conn, :index), class: "button" %>
+                <% else %>
                 <%= link "Log in", to: Routes.user_session_path(@conn, :new), class: "button is-link is-outlined mr-5" %>
                 <%= link "Sign in", to: Routes.user_registration_path(@conn, :new), class: "button is-link is-light" %>
+                <% end %>
               </div>
             </div>
             </div>
