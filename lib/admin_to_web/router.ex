@@ -13,14 +13,20 @@ defmodule AdminToWeb.Router do
     plug :fetch_current_user
   end
 
+  pipeline :browser_static do
+    plug :accepts, ["html"]
+    plug :fetch_session
+    plug :protect_from_forgery
+    plug :put_secure_browser_headers
+  end
+
   pipeline :api do
     plug :accepts, ["json"]
   end
 
   scope "/", AdminToWeb do
-    pipe_through :browser
-
-    live "/", PageLive, :index
+    pipe_through :browser_static
+    get "/", LandingController, :index
   end
 
   # Other scopes may use custom stacks.
@@ -62,6 +68,7 @@ defmodule AdminToWeb.Router do
   scope "/", AdminToWeb do
     pipe_through [:browser, :require_authenticated_user]
 
+    live "/home", PageLive, :index
     get "/users/settings", UserSettingsController, :edit
     put "/users/settings", UserSettingsController, :update
     get "/users/settings/confirm_email/:token", UserSettingsController, :confirm_email
