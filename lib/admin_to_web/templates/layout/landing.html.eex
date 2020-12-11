@@ -11,7 +11,7 @@
   <body>
 
     <header>
-      <nav class="navbar is-fixed-top is-transparent" role="navigation" aria-label="main navigation">
+      <nav class="navbar has-shadow is-fixed-top is-transparent" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
           <a class="navbar-item" href="#">
             <img src="<%= Routes.static_path(@conn, "/images/logo_blue.png") %>" alt="#"/>
@@ -29,9 +29,12 @@
               <a class="navbar-item is-size-4 is-uppercase has-text-weight-medium" href="#">sitename</a>
             </div>
             <div class="navbar-end">
-              <div class="navbar-item">
-                 <%= link "Log in", to: Routes.user_session_path(@conn, :new), class: "button is-link is-outlined" %>
+            <div class="navbar-item">
+              <div class="buttons">
+                <%= link "Log in", to: Routes.user_registration_path(@conn, :new), class: "button is-link is-outlined mr-5" %>
+                <%= link "Sign in", to: Routes.user_session_path(@conn, :new), class: "button is-link is-light" %>
               </div>
+            </div>
             </div>
         </div>
       </nav>
