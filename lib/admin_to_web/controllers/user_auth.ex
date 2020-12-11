@@ -81,7 +81,7 @@ defmodule AdminToWeb.UserAuth do
     conn
     |> renew_session()
     |> delete_resp_cookie(@remember_me_cookie)
-    |> redirect(to: "/")
+    |> redirect(to: "/home")
   end
 
   @doc """
