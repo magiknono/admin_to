@@ -255,3 +255,9 @@ header nav a {
   display: block;
   margin: -1rem 0 2rem; }
 
+#search-input {
+  width: 50%; }
+
+.loader {
+  text-align: center; }
+
