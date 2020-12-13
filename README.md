@@ -18,3 +18,14 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
   * Docs: https://hexdocs.pm/phoenix
   * Forum: https://elixirforum.com/c/phoenix-forum
   * Source: https://github.com/phoenixframework/phoenix
+
+## Tips Learned
+
+  * Enable live view debug in browser inspector console : `liveSocket.enableDebug()`
+  * List all mix dependancies : mix deps --all
+  * to learn : practices for git commit : [Conventionnal commit](https://www.conventionalcommits.org/)
+
+## To fix
+
+  * css in priv instead of webpack
+  
