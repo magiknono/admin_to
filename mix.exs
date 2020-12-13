@@ -1,14 +1,19 @@
 defmodule AdminTo.MixProject do
   use Mix.Project
 
+  @source_url "https://github.com/magiknono/admin_to"
+  @version "0.1.0"
+
   def project do
     [
       app: :admin_to,
-      version: "0.1.0",
-      elixir: "~> 1.7",
+      version: @version,
+      elixir: "~> 1.10.4",
+      name: "admin_to",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
+      source_url: @source_url,
       aliases: aliases(),
       deps: deps()
     ]
@@ -39,9 +44,7 @@ defmodule AdminTo.MixProject do
       {:ecto_sql, "~> 3.4"},
       {:postgrex, ">= 0.0.0"},
       {:phoenix_live_view, "~> 0.15.0"},
-      {:floki, ">= 0.27.0", only: :test},
       {:phoenix_html, "~> 2.11"},
-      {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:phoenix_live_dashboard, "~> 0.4"},
       {:telemetry_metrics, "~> 0.4"},
       {:telemetry_poller, "~> 0.4"},
@@ -49,7 +52,12 @@ defmodule AdminTo.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:phx_gen_auth, "~> 0.6.0"},
-      {:credo, "~> 1.4", only: [:dev, :test], runtime: false}
+
+      # dev & test
+      {:phoenix_live_reload, "~> 1.2", only: :dev},
+      {:credo, "~> 1.4", only: [:dev, :test], runtime: false},
+      {:git_ops, "~> 2.1.0", only: [:dev]},
+      {:floki, ">= 0.27.0", only: :test}
     ]
   end
 
