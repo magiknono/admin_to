@@ -114,7 +114,7 @@ defmodule AdminToWeb.UserAuth do
   def redirect_if_user_is_authenticated(conn, _opts) do
     if conn.assigns[:current_user] do
       conn
-      |> redirect(to: signed_in_path(conn))
+      |> redirect(to: "/home")
       |> halt()
     else
       conn
