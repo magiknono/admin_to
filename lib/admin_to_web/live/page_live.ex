@@ -1,4 +1,5 @@
 defmodule AdminToWeb.PageLive do
+  @moduledoc false
   use AdminToWeb, :live_view
   alias AdminTo.Accounts
 

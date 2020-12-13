@@ -1,4 +1,5 @@
 defmodule AdminToWeb.SearchLive do
+  @moduledoc false
   use AdminToWeb, :live_view
 
   alias AdminTo.Packages
