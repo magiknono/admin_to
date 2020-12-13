@@ -9,13 +9,15 @@ defmodule AdminTo.MixProject do
       app: :admin_to,
       version: @version,
       elixir: "~> 1.10.4",
-      name: "admin_to",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
-      source_url: @source_url,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+
+      # Docs
+      name: "admin_to",
+      source_url: @source_url
     ]
   end
 
@@ -57,6 +59,7 @@ defmodule AdminTo.MixProject do
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:credo, "~> 1.4", only: [:dev, :test], runtime: false},
       {:git_ops, "~> 2.1.0", only: [:dev]},
+      {:ex_doc, "~> 0.23.0", only: :dev, runtime: false},
       {:floki, ">= 0.27.0", only: :test}
     ]
   end

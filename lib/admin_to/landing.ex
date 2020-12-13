@@ -1,5 +1,6 @@
 defmodule AdminTo.Landing do
-  @moduledoc """
+  @moduledoc false
+  """
   The Landing context.
   """
 
