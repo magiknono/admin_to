@@ -127,12 +127,18 @@ defmodule AdminToWeb.SearchLive do
   end
 
   def handle_info({:run_name_search, name}, socket) do
-    socket =
-      assign(socket,
-        packages: Packages.search_by_name(name),
-        loading: false
-      )
-    {:noreply, socket}
+    case Packages.search_by_name(name) do
+      [] ->
+        socket =
+          socket
+          |> put_flash(:info, "No packages matching #{name}")
+          |> assign(packages: [], loading: false)
+          {:noreply, socket}
+
+      packages ->
+          socket = assign(socket, packages: packages, loading: false)
+          {:noreply, socket}
+      end
   end
 
 end
