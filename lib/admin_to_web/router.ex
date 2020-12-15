@@ -13,6 +13,8 @@ defmodule AdminToWeb.Router do
     plug :fetch_current_user
   end
 
+  # Block for custom pipeline
+
   pipeline :browser_static do
     plug :accepts, ["html"]
     plug :fetch_session
@@ -25,8 +27,11 @@ defmodule AdminToWeb.Router do
     plug :accepts, ["json"]
   end
 
+  # Block for custom routes
+
   scope "/", AdminToWeb do
     pipe_through :browser_static
+
     get "/", LandingController, :index
   end
 
@@ -66,11 +71,20 @@ defmodule AdminToWeb.Router do
     put "/users/reset_password/:token", UserResetPasswordController, :update
   end
 
+  # Block for custom routes
+
   scope "/", AdminToWeb do
     pipe_through [:browser, :require_authenticated_user]
 
     live "/home", PageLive, :index
     live "/search", SearchLive
+  end
+
+  ## Authentication routes
+
+  scope "/", AdminToWeb do
+    pipe_through [:browser, :require_authenticated_user]
+
     get "/users/settings", UserSettingsController, :edit
     put "/users/settings", UserSettingsController, :update
     get "/users/settings/confirm_email/:token", UserSettingsController, :confirm_email
