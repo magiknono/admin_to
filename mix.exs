@@ -17,7 +17,16 @@ defmodule AdminTo.MixProject do
 
       # Docs
       name: "admin_to",
-      source_url: @source_url
+      source_url: @source_url,
+      docs: [
+        main: "readme",
+        logo: "priv/static/logo_blue.png",
+        source_ref: "v#{@version}",
+        extras: [
+          "README.md",
+          "CHANGELOG.md"
+        ]
+      ]
     ]
   end
 
@@ -54,6 +63,7 @@ defmodule AdminTo.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:phx_gen_auth, "~> 0.6.0"},
+      {:httpoison, "~> 1.7"},
 
       # dev & test
       {:phoenix_live_reload, "~> 1.2", only: :dev},

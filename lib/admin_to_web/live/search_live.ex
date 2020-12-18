@@ -106,6 +106,8 @@ defmodule AdminToWeb.SearchLive do
         <%= for package <- @packages do %>
           <li>
             <div class="name"><%= package.name %></div>
+            <div class="info"><a href="<%= package.info %>" >Info</a></div>
+            <div class="man"><a href="<%= package.man %>" >Manual</a></div>
           </li>
         <% end %>
         </ul>
